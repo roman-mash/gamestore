@@ -2,6 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  compiler: {
+    styledComponents: true,
+  },
+  images: {
+    domains: ['media.rawg.io'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
