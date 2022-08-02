@@ -84,7 +84,7 @@ export default function Home({ gamesSSR, platforms }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const [gamesData, platformsData] = await Promise.all([
     fetchGamesSSR(),
     fetchPlatforms(),
