@@ -9,7 +9,6 @@ const GamesList = ({ items, refElement }) => {
           <GameCard game={game} />
         </GameWrap>
       ))}
-
       <div ref={refElement}></div>
     </GamesListStyled>
   );

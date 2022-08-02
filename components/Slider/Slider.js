@@ -8,7 +8,6 @@ import { SliderStyled } from './styled';
 import Image from 'next/image';
 
 const Slider = ({ items }) => {
-  console.log(items);
   return (
     <SliderStyled>
       <Swiper
@@ -34,6 +33,7 @@ const Slider = ({ items }) => {
                 src={slide.image}
                 width={slide.width}
                 height={slide.height}
+                alt={slide.id}
               />
             </div>
           </SwiperSlide>

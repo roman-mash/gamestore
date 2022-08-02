@@ -89,34 +89,6 @@ const GameInfo = styled.div`
   gap: 30px;
 `;
 
-const GameDetail = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const GameDetailTitle = styled.span`
-  font-size: 16px;
-  font-weight: 400;
-  opacity: 0.5;
-  color: ${(props) => props.theme.colors.text};
-`;
-
-const GameDetailValue = styled.span`
-  margin-top: 5px;
-  font-size: 16px;
-  font-weight: 600;
-  color: ${(props) => props.theme.colors.text};
-`;
-
-const GameDetailLink = styled.a`
-  cursor: pointer;
-  margin-top: 5px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: underline;
-  color: ${(props) => props.theme.colors.text};
-`;
-
 const GameDescription = styled.div`
   width: 100%;
   font-size: 16px;
@@ -126,6 +98,7 @@ const GameDescription = styled.div`
 
   p {
     margin-bottom: 15px;
+    word-break: break-word;
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -140,9 +113,5 @@ export {
   BackLink,
   GameData,
   GameInfo,
-  GameDetail,
-  GameDetailTitle,
-  GameDetailValue,
-  GameDetailLink,
   GameDescription,
 };

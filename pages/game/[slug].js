@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { fetchGamesBySlug, fetchScreenshotsBySlug } from '../../API/games';
+import GameDetail from '../../components/GameDetail/GameDetail';
 import Slider from '../../components/Slider/Slider';
 import Layout from '../../layouts/Layout';
 import { formatDate } from '../../lib/date';
@@ -9,10 +9,6 @@ import {
   BackLink,
   GameData,
   GameDescription,
-  GameDetail,
-  GameDetailLink,
-  GameDetailTitle,
-  GameDetailValue,
   GameHeader,
   GameHeaderEmpty,
   GameHeaderWrapper,
@@ -21,7 +17,6 @@ import {
 } from '../../styles/GamePage';
 
 const Game = ({ gameData, screenshots }) => {
-  console.log(screenshots);
   return (
     <Layout title={gameData.name}>
       <GamePageMain>
@@ -49,28 +44,21 @@ const Game = ({ gameData, screenshots }) => {
         <Container>
           <GameData>
             <GameInfo>
-              <GameDetail>
-                <GameDetailTitle>Released</GameDetailTitle>
-                <GameDetailValue>
-                  {formatDate(gameData.released)}
-                </GameDetailValue>
-              </GameDetail>
-              <GameDetail>
-                <GameDetailTitle>Rating</GameDetailTitle>
-                <GameDetailValue>{gameData.rating}</GameDetailValue>
-              </GameDetail>
-              <GameDetail>
-                <GameDetailTitle>Website</GameDetailTitle>
-                <GameDetailLink href={gameData?.website}>
-                  Click to visit
-                </GameDetailLink>
-              </GameDetail>
+              <GameDetail
+                title="Released"
+                value={formatDate(gameData.released)}
+              />
+              <GameDetail title="Rating" value={gameData.rating} />
+              <GameDetail
+                title="Website"
+                value={gameData?.website}
+                detailType="link"
+              />
             </GameInfo>
             <GameDescription
               dangerouslySetInnerHTML={{ __html: gameData?.description }}
             ></GameDescription>
           </GameData>
-          {gameData?.screnshots_count}
         </Container>
         {screenshots.length ? <Slider items={screenshots} /> : ''}
       </GamePageMain>
